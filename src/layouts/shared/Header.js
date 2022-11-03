@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import toast from 'react-hot-toast'
 import { Link, NavLink } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthProvider'
 
@@ -10,7 +11,7 @@ export default function Header() {
         logOut()
             .then(() => {
                 // Sign-out successful.
-
+                toast.success('Sign-out successful.');
             })
             .catch((error) => {
                 console.error(error);

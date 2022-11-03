@@ -1,31 +1,54 @@
 import React, { useContext, useState } from 'react'
+import toast from 'react-hot-toast';
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
-    const [error, setError] = useState(null)
-    const navigate = useNavigate()
+    // const [error, setError] = useState(null)
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserInfo } = useContext(AuthContext)
 
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target
-        const user = form.user.value
+        const name = form.name.value
         const email = form.email.value
+        const photoUrl = form.photoUrl.value
         const password = form.password.value
 
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
-                // console.log(user)
 
-                navigate('/')
+                handleUpdateUserProfile(name, photoUrl);
+                toast.success('Login Successful');
+                form.reset()
             })
-            .catch((error) => { setError(error.message) });
+            .catch((error) => {
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+            });
 
-        form.reset()
+
+        
+    }
+
+    // updating the profile of a user 
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+
+        updateUserInfo(profile)
+            .then(() => { })
+            .catch((error) => {
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+
+            });
     }
 
 
@@ -54,13 +77,11 @@ const Register = () => {
                                 <p className="text-center font-semibold mx-4 mb-0">Or</p>
                             </div>
                             <form onSubmit={handleSubmit}>
-                                <p className='text-error'>{error}</p>
                                 <div className="mb-6">
                                     <input
                                         type="text"
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        id="exampleFormControlInput"
-                                        name='user'
+                                        name='name'
                                         placeholder="Your Name"
                                     />
                                 </div>
@@ -69,7 +90,15 @@ const Register = () => {
                                     <input
                                         type="text"
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        id="exampleFormControlInput1"
+                                        name='photoUrl'
+                                        placeholder="Photo URL"
+                                    />
+                                </div>
+
+                                <div className="mb-6">
+                                    <input
+                                        type="text"
+                                        className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         name='email'
                                         placeholder="Email address"
                                     />
@@ -79,7 +108,6 @@ const Register = () => {
                                     <input
                                         type="password"
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        id="exampleFormControlInput2"
                                         name='password'
                                         placeholder="Password"
                                     />
@@ -122,4 +150,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default Register;

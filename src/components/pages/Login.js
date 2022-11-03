@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react'
+import toast from 'react-hot-toast';
 import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -7,7 +8,6 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 function Login() {
 
-    const [error, setError] = useState(null)
     const navigate = useNavigate()
 
     const { providerLogin, signInUser } = useContext(AuthContext)
@@ -20,14 +20,17 @@ function Login() {
         providerLogin(googleProvider)
             .then((result) => {
                 const user = result.user;
+                toast.success('Login Successful');
+                navigate('/')
 
             })
             .catch((error) => {
-                console.error(error)
+                const errorMessage = error.message;
+                toast.error(errorMessage);
 
             });
 
-        navigate('/')
+
     }
 
     const handleSubmit = event => {
@@ -42,13 +45,15 @@ function Login() {
 
                 const user = result.user;
                 // console.log(user)
-
-                // ...
+                toast.success('Login Successful');
+                navigate('/')
             })
-            .catch((error) => { setError(error.message); });
+            .catch((error) => {
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+            });
 
         form.reset()
-        navigate('/')
 
     }
 
@@ -83,7 +88,6 @@ function Login() {
                             >
                                 <p className="text-center font-semibold mx-4 mb-0">Or</p>
                             </div>
-                            <p className='text-error'>{error}</p>
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-6">
                                     <input
