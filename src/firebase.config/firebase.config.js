@@ -5,14 +5,13 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAx0yVemILt8XHZDjonQjDnzYCpaEfG2RI",
-    authDomain: "sj-quiz-1843e.firebaseapp.com",
-    projectId: "sj-quiz-1843e",
-    storageBucket: "sj-quiz-1843e.appspot.com",
-    messagingSenderId: "397460429418",
-    appId: "1:397460429418:web:2e73c18de4339c5b618813",
-    measurementId: "G-LZNM44DMPX"
-  };
+  apiKey: "AIzaSyD3vRISHl2XF1kOBgPEyQxwGXNh3Y9wfKc",
+  authDomain: "sj-quiz-5bbb9.firebaseapp.com",
+  projectId: "sj-quiz-5bbb9",
+  storageBucket: "sj-quiz-5bbb9.appspot.com",
+  messagingSenderId: "338178660508",
+  appId: "1:338178660508:web:f0536453a9393f6183f559"
+};
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
