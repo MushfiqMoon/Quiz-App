@@ -28,6 +28,7 @@ export default function Header() {
                 </div>
                 <div className="flex">
                     <ul className="menu menu-horizontal p-0">
+                        <li><NavLink to='/dashbord'>Dashboard</NavLink></li>
                         <li><NavLink to='/'>Home</NavLink></li>
                         {
                             user ? <li><a >{user?.displayName ? user?.displayName : 'anonymous'} </a></li> : <></>

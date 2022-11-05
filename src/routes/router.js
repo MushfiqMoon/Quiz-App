@@ -1,10 +1,12 @@
 import {
     createBrowserRouter,
 } from "react-router-dom";
+import CreateQuestions from "../components/components/CreateQuestions";
 import { ErrorPage } from "../components/pages/ErrorPage";
 import Home from "../components/pages/Home";
 import Login from "../components/pages/Login";
 import Register from "../components/pages/Register";
+import Dashboard from "../layouts/Dashboard";
 import Main from "../layouts/Main";
 
 export const router = createBrowserRouter([
@@ -28,4 +30,15 @@ export const router = createBrowserRouter([
         ],
 
     },
+    {
+        path: "/dashbord",
+        element: <Dashboard />,
+        errorElement: <ErrorPage />,
+        children: [
+            {
+                path: "/dashbord/add/questions",
+                element: <CreateQuestions />,
+            },
+        ]
+    }
 ]);
