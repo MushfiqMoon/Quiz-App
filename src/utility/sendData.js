@@ -11,10 +11,10 @@ const sendData = (url, data) => (
     })
         .then((res) => res.json())
         .then((data) => {
-            
-            if(data.sussess){
-               return toast.success(data.massage);
-            }else{
+
+            if (data.sussess) {
+                return toast.success(data.massage);
+            } else {
                 toast.error(data.massage);
             }
         })

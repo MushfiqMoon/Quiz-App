@@ -11,15 +11,11 @@ const Dashboard = () => {
                 <div className="flex flex-col flex-1 w-full overflow-y-auto">
 
                     <div className='py-5 px-10'>
-                        <Outlet />
+                        <div className="py-5 px-10 bg-gray-50 rounded dark:bg-gray-800">
+                            <Outlet />
+                        </div>
                     </div>
                 </div>
-                {/* 
-                    <main>
-                        <div className="grid mb-4 mt-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-primary">
-                        </div>
-                    </main>
-                </div> */}
             </div>
         </div>
     )

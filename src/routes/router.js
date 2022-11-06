@@ -1,6 +1,7 @@
 import {
     createBrowserRouter,
 } from "react-router-dom";
+import QuizCategory from "../components/components/QuizCategory";
 import CreateQuestions from "../components/components/CreateQuestions";
 import { ErrorPage } from "../components/pages/ErrorPage";
 import Home from "../components/pages/Home";
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
             {
                 path: "/dashbord/add/questions",
                 element: <CreateQuestions />,
+            },
+            {
+                path: "/dashbord/add/category",
+                element: <QuizCategory />,
             },
         ]
     }
