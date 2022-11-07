@@ -24,7 +24,7 @@ const CreateQuestions = () => {
 
         // sending the data to backend
         const url = 'http://localhost:5000/quiz/question'
-        sendData(url, newQuestion)
+       const abc =  sendData(url, newQuestion)
     }
 
     useEffect(() => {
@@ -43,18 +43,18 @@ const CreateQuestions = () => {
             <form onSubmit={handleSubmit}>
                 <div className="relative z-0 mb-6 w-full group">
                     <label htmlFor="quiz-questions" className='badge badge-primary text-white mt-2'>Question</label>
-                    <input type="text" name="quizQuestions" id="quiz-questions" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
+                    <input type="text" name="quizQuestions" id="quiz-questions" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
                 </div>
                 <div className="flex flex-row gap-x-10">
                     <div className="relative z-0 mb-6 w-full group basis-2/3">
                         <label htmlFor="correct-answer" className="badge badge-secondary text-white mt-2">Correct Answer</label>
-                        <input type="text" name="correctAnswer" id="correct-answer" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
+                        <input type="text" name="correctAnswer" id="correct-answer" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
                     </div>
 
                     <div className="relative z-0 mb-6 w-full group basis-1/3">
 
                         <label htmlFor="correct-answer" className="badge badge-secondary text-white mt-2">Select Categor</label>
-                        <select name='category' id="countries" onChange={e=>setSelected(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                        <select name='category' id="countries" onChange={e=>setSelected(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
                             <option value="N/A">N/A</option>
                             {quizCat.map(item => <option key={item._id} value={item?.name} >{item?.name}</option>)
 
@@ -67,21 +67,21 @@ const CreateQuestions = () => {
                 <div className="grid gap-x-10 gap-y-5 grid-cols-2">
                     <div className="relative z-0 mb-6 w-full group">
                         <label htmlFor="option-one" className="badge badge-secondary text-white mt-2">Option One</label>
-                        <input type="text" name="optionOne" id="option-one" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
+                        <input type="text" name="optionOne" id="option-one" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
                     </div>
                     <div className="relative z-0 mb-6 w-full group">
                         <label htmlFor="option-two" className="badge badge-secondary text-white mt-2">Option Two</label>
-                        <input type="text" name="optionTwo" id="option-two" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
+                        <input type="text" name="optionTwo" id="option-two" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
                     </div>
                 </div>
                 <div className="grid gap-x-10 gap-y-5 grid-cols-2">
                     <div className="relative z-0 mb-6 w-full group">
                         <label htmlFor="option-three" className="badge badge-secondary text-white mt-2">Option Three</label>
-                        <input type="text" name="optionThree" id="option-three" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
+                        <input type="text" name="optionThree" id="option-three" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
                     </div>
                     <div className="relative z-0 mb-6 w-full group">
                         <label htmlFor="option-four" className="badge badge-secondary text-white mt-2">Option Four</label>
-                        <input type="text" name="optionFour" id="option-four" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
+                        <input type="text" name="optionFour" id="option-four" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
                     </div>
 
                 </div>

@@ -11,7 +11,7 @@ const Dashboard = () => {
                 <div className="flex flex-col flex-1 w-full overflow-y-auto">
 
                     <div className='py-5 px-10'>
-                        <div className="py-5 px-10 bg-gray-50 rounded dark:bg-gray-800">
+                        <div className="py-5 px-10 bg-gray-50 rounded">
                             <Outlet />
                         </div>
                     </div>
