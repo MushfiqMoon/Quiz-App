@@ -1,27 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import sendData from '../../utility/sendData'
 
 
 const CreateQuestions = () => {
+
+    const [quizCat, setquizCat] = useState([])
+    const [selected, setSelected] = useState("N/A")
 
     const handleSubmit = e => {
         e.preventDefault()
         const form = e.target
         const question = form.quizQuestions.value
         const correctAnswer = form.correctAnswer.value
+        const category = selected
         const optionOne = form.optionOne.value
         const optionTwo = form.optionTwo.value
         const optionThree = form.optionThree.value
         const optionFour = form.optionFour.value
 
-        const options = [optionOne, optionTwo, optionThree, optionFour]
-        const newQuestion = { question, correctAnswer, options }
-        console.log(newQuestion)
+        const options = [optionOne, optionTwo, optionThree, optionFour,]
+        const newQuestion = { question, correctAnswer, options, category }
+        // console.log(category)
 
         // sending the data to backend
         const url = 'http://localhost:5000/quiz/question'
         sendData(url, newQuestion)
     }
+
+    useEffect(() => {
+        fetch('http://localhost:5000/quiz/category')
+            .then(res => res.json())
+            .then(data => setquizCat(data.data))
+
+    }, [])
 
     return (
         <>
@@ -41,8 +52,15 @@ const CreateQuestions = () => {
                     </div>
 
                     <div className="relative z-0 mb-6 w-full group basis-1/3">
-                        <input type="text" name="correct-answer" id="correct-answer" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required="" />
-                        <label htmlFor="correct-answer" className="badge badge-accent text-white mt-2">Correct Answer</label>
+
+                        <label htmlFor="correct-answer" className="badge badge-secondary text-white mt-2">Select Categor</label>
+                        <select name='category' id="countries" onChange={e=>setSelected(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                            <option value="N/A">N/A</option>
+                            {quizCat.map(item => <option key={item._id} value={item?.name} >{item?.name}</option>)
+
+                            }
+                        </select>
+
                     </div>
                 </div>
 
