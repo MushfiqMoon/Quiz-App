@@ -23,12 +23,12 @@ const CreateQuestions = () => {
         // console.log(category)
 
         // sending the data to backend
-        const url = 'http://localhost:5000/quiz/question'
+        const url = 'https://quiz-app-server-zeta.vercel.app/quiz/question'
        const abc =  sendData(url, newQuestion)
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/quiz/category')
+        fetch('https://quiz-app-server-zeta.vercel.app/quiz/category')
             .then(res => res.json())
             .then(data => setquizCat(data.data))
 
@@ -56,7 +56,7 @@ const CreateQuestions = () => {
                         <label htmlFor="correct-answer" className="badge badge-secondary text-white mt-2">Select Categor</label>
                         <select name='category' id="countries" onChange={e=>setSelected(e.target.value)} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
                             <option value="N/A">N/A</option>
-                            {quizCat.map(item => <option key={item._id} value={item?.name} >{item?.name}</option>)
+                            {quizCat?.map(item => <option key={item._id} value={item?.name} >{item?.name}</option>)
 
                             }
                         </select>

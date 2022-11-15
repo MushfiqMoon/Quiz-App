@@ -20,7 +20,7 @@ const QuizCategory = () => {
 
         // sending the data to backend
 
-        fetch('http://localhost:5000/quiz/category', {
+        fetch('https://quiz-app-server-zeta.vercel.app/quiz/category', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const QuizCategory = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/quiz/category')
+        fetch('https://quiz-app-server-zeta.vercel.app/quiz/category')
             .then(res => res.json())
             .then(data => setquizCat(data.data))
 
@@ -54,7 +54,7 @@ const QuizCategory = () => {
         const res = quizCat.filter((data) => data._id !== id);
         setquizCat([...res]);
 
-        fetch(`http://localhost:5000/quiz/category/${id}`, {
+        fetch(`https://quiz-app-server-zeta.vercel.app/quiz/category/${id}`, {
             method: 'DELETE',
         })
             .then((res) => res.json())
@@ -100,7 +100,8 @@ const QuizCategory = () => {
                     <div className="container py-5 mx-auto">
                         <div className="flex flex-wrap m-2">
                             {
-                                quizCat.map((cat, index) =>
+                                
+                                quizCat?.map((cat, index) =>
                                     <div key={index} className="p-2 lg:w-1/2 md:w-1/2 w-full">
                                         <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                                             <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={cat?.image ? cat?.image : 'https://dummyimage.com/80x80'} />
