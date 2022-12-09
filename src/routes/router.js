@@ -9,6 +9,9 @@ import Login from "../components/pages/Login";
 import Register from "../components/pages/Register";
 import Dashboard from "../layouts/Dashboard";
 import Main from "../layouts/Main";
+import Catagories from "../components/pages/Catagories";
+
+
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +31,10 @@ export const router = createBrowserRouter([
                 path: "/register",
                 element: <Register />,
             },
+            {
+                path: "/catagories",
+                element: <Catagories />,
+            },
         ],
 
     },
@@ -44,6 +51,8 @@ export const router = createBrowserRouter([
                 path: "/dashbord/add/category",
                 element: <QuizCategory />,
             },
+            
+          
         ]
     }
 ]);

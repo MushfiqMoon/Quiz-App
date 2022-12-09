@@ -30,6 +30,8 @@ export default function Header() {
                     <ul className="menu menu-horizontal p-0">
                         <li><NavLink to='/dashbord'>Dashboard</NavLink></li>
                         <li><NavLink to='/'>Home</NavLink></li>
+                        <li><NavLink to='/catagories'>Category</NavLink></li>
+                       
                         {
                             user ? <li><a >{user?.displayName ? user?.displayName : 'anonymous'} </a></li> : <></>
                         }
