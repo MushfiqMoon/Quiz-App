@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 function CatagoryCard({ cat }) {
   // console.log(cat);
@@ -19,7 +19,7 @@ function CatagoryCard({ cat }) {
           <h2 className="card-title">{cat.name}</h2>
           <p>{cat.description}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Start Exam</button>
+          <Link to={`/catagories/${cat.name}`} className="btn btn-primary">Start Exam</Link>
           </div>
         </div>
       </div>

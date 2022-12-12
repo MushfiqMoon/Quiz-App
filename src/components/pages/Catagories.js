@@ -3,7 +3,7 @@ import CatagoryCard from "../components/CatagoryCard";
 
 const Catagories = () => {
     const [qcatagory, setQcatagory] = useState([]);
-  
+  // console.log(qcategory)
     useEffect(() => {
       fetch("https://quiz-app-server-zeta.vercel.app/quiz/category")
         .then((res) => res.json())

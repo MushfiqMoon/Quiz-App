@@ -10,6 +10,7 @@ import Register from "../components/pages/Register";
 import Dashboard from "../layouts/Dashboard";
 import Main from "../layouts/Main";
 import Catagories from "../components/pages/Catagories";
+import Question from "../components/pages/Question";
 
 
 
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path: "/catagories",
                 element: <Catagories />,
+            },
+            {
+                path: "/catagories/:name",
+                element: <Question />,
             },
         ],
 
