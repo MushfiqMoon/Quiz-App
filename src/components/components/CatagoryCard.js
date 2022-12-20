@@ -10,7 +10,7 @@ function CatagoryCard({ cat }) {
           <img
             style={{ width: 200, height: 200 }}
             src={cat.image ? cat.image : "https://placeimg.com/400/225/arch"}
-            alt="Shoes"
+            alt="CategoryName"
             className="rounded-xl"
           />
         </figure>
